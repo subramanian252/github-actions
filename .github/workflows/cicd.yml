@@ -2,7 +2,8 @@ name: CI/CD Pipeline
 
 on:
   schedule:
-    - cron: '*/5 * * * *' 
+    - cron: '*5 * * * *' 
+  workflow_dispatch:
 
 
 jobs:
@@ -10,7 +11,7 @@ jobs:
     name: Hello World
     runs-on: windows-latest
     steps:
-      - name: echo name
+      - name: get computer info
         shell: pwsh
         run: get-computerinfo
 
