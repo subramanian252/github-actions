@@ -82,7 +82,7 @@ jobs:
       - name: verify download
         run: |
           ls -la
-          cat ./artifacts/hostname.txt
+          cat ./hostname.txt
           
           
           
