@@ -1,0 +1,16 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo name
+        run: echo "Hello Surya"
+      - name: show os details
+        run: cat /etc/os-release
