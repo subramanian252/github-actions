@@ -18,7 +18,36 @@ jobs:
       - name: step-3
         run : |
           pwd
-          ls -la
-          hostname
+          mkdir artifacts
+          ls -la >> artifacts/listing.txt
+          echo "note" >> ./note.txt
+          hostname >> artifacts/hostname.txt
+      - name: step-4
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: single_artifacts
+          path: ./note.txt
+      - name: step-5
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: directory_artifacts
+          path: artifacts/
+      - name: step-6
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: multi_path_artifacts
+          path: |
+            ./note.txt
+            ./artifacts/
+      - name : step-7
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: all_files
+          path: |
+            ./note.txt
+            ./artifacts/
+            !**/hostname.txt
+          
+          
 
 
