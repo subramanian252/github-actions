@@ -47,6 +47,30 @@ jobs:
             ./note.txt
             ./artifacts/
             !**/hostname.txt
+  job2:
+    name: job2
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - name: step-1
+        run: |
+          pwd
+          ls -la
+          hostname
+      - name : download a file
+        uses: actions/download-artifact@v5
+        with:
+          name: single_artifacts
+      - name: verify download
+        run: |
+          ls -la
+          cat ./note.txt
+          
+          
+          
+
+
+
           
           
 
