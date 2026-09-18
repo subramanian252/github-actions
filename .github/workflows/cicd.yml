@@ -93,7 +93,7 @@ jobs:
         run: |
           pwd
           mkdir single_file
-          mkidr directory_files
+          mkdir directory_files
           ls -la
           hostname
       - name : download single file
