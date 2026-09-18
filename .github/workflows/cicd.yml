@@ -7,7 +7,7 @@ on:
 
 
 jobs:
-  hello-world-name-check:
+  job1:
     name: Hello World
     runs-on: ubuntu-latest
     steps:
@@ -15,3 +15,21 @@ jobs:
         run: echo "Hello Surya"
       - name: show os details
         run: cat /etc/os-release
+      - name: sleep for 5 seconds
+        run: |
+          echo "Sleeping for 5 seconds"
+          sleep 5
+          echo "Done sleeping"
+  job2:
+    name: Hello World 2
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo name
+        run: echo "Hello Surya from job 2"
+      - name: run multiple commands
+        run: |
+          echo "Hello Surya from job 2 multiple runs"
+          echo "Today is $(date)"
+          echo "going to sleep"
+          sleep 5
+          echo "Done"
