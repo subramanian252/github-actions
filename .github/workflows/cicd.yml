@@ -63,6 +63,7 @@ jobs:
           name: single_artifacts
       - name: verify download
         run: |
+          echo "=== Single File ==="
           ls -la
           cat ./note.txt
   job3:
@@ -83,8 +84,34 @@ jobs:
         run: |
           ls -la
           cat ./hostname.txt
-          
-          
+  job4:
+    name: job4
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - name: step-1
+        run: |
+          pwd
+          mkdir single_file
+          mkidr directory_files
+          ls -la
+          hostname
+      - name : download single file
+        uses: actions/download-artifact@v5
+        with:
+          name: single_artifacts
+          path: single_file
+      - name : download a directory
+        uses: actions/download-artifact@v5
+        with:
+          name: directory_artifacts
+          path: directory_files
+      - name: verify download
+        run: |
+          echo "=== Directory Files ==="
+          ls -la directory_files
+          echo "=== Single Files ==="
+          ls -la single_file
           
 
 
