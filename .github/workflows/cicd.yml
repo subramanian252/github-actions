@@ -1,18 +1,24 @@
 name: CI/CD Pipeline
 
-on:
-  schedule:
-    - cron: '*/5 * * * *' 
-  workflow_dispatch:
+on: push
 
 
 jobs:
   job1:
-    name: Hello World
-    runs-on: windows-latest
+    name: job1
+    runs-on: ubuntu-latest
     steps:
-      - name: get computer info
-        shell: pwsh
-        run: get-computerinfo
+      - name: step-1
+        run: |
+          pwd
+          ls -la
+          hostname
+      - name: step-2
+        uses: actions/checkout@v6.1.0
+      - name: step-3
+        run : |
+          pwd
+          ls -la
+          hostname
 
 
